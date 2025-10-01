@@ -16,6 +16,10 @@ These exercises are intended to be run at the end of project phases, steps, or t
   Framework for analyzing a problem through multiple professional roles, uncovering unique insights and integrating them.  
   [See details](./role-switching/multi-role-analysis-protocol-v2.md)
 
+- **Project Foundations & Horizons:**  
+  Structured cognitive practice for mapping deliverables, enablers, and adaptation in complex projects.  
+  [See details](./foundations-and-horizons/project-foundations-and-horizons.md)
+
 ## Usage
 
 Simply select and apply an exercise at the completion of a project phase or major task. Follow the steps in each protocol to guide discussion and analysis. They work best as a complement to standard review, not a replacement.
