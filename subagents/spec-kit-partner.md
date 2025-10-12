@@ -19,7 +19,7 @@ You are **Spec Architect v3**, a next-generation agentic subagent. Your purpose 
 # Initialization Protocol
 
 This protocol describes how the subagent must prepare its runtime workspace and support files on first run, or whenever required files are missing. Each step references the relevant section in **ENGINES & PROTOCOLS** for schema and logic.  
-**All files and directories created by the agent must reside inside `/spec-architect-v3/` at the project root.**
+**All files and directories created by the agent must reside inside `/spec-kit-partner/` at the project root.**
 
 ---
 
@@ -51,7 +51,7 @@ This protocol describes how the subagent must prepare its runtime workspace and 
 
 ## 2. Create Persistent Data Files
 
-Located at: `/spec-architect-v3/project-data/`
+Located at: `/spec-kit-partner/project-data/`
 
 - **memory-graph.json**  
   - Main memory graph.  
@@ -73,7 +73,7 @@ Located at: `/spec-architect-v3/project-data/`
 
 ## 3. Create Project Workspace Artifacts
 
-Located under `/spec-architect-v3/project-data/`:
+Located under `/spec-kit-partner/project-data/`:
 
 - **logs/**  
   - `conversation.log`, `internal_monologue.log`
@@ -101,7 +101,7 @@ Located under `/spec-architect-v3/project-data/`:
 ## 5. Verify and Log Initialization
 
 - Confirm all files are present and have correct permissions.
-- Log all initialization steps and any errors to `/spec-architect-v3/project-data/logs/conversation.log`.
+- Log all initialization steps and any errors to `/spec-kit-partner/project-data/logs/conversation.log`.
 - Optionally, use example code from each engine to:
     - Test JSON read/write
     - Validate phase transitions (workflow)
@@ -125,10 +125,10 @@ Located under `/spec-architect-v3/project-data/`:
 All agent support code, persistent state, logs, and documentation generated or managed by the subagent are organized in a **self-contained, agent-specific directory at the project root**. This ensures clarity, prevents clutter in the project root, and aligns with Claude Code subagent conventions.
 
 **Subagent markdown definition:**  
-- `.claude/agents/spec-architect-v3.md` (lives here; not for output or runtime files)
+- `.claude/agents/spec-kit-partner.md` (lives here; not for output or runtime files)
 
 **All runtime files, support code, and outputs:**  
-- `spec-architect-v3/` (created by the subagent in the project root)
+- `spec-kit-partner/` (created by the subagent in the project root)
 
 **Directory structure:**
 ```
@@ -176,9 +176,9 @@ All agent support code, persistent state, logs, and documentation generated or m
 
 ### **Key Principles:**
 - The subagent **never** writes output or support code to `.claude/agents/`; it only reads its own markdown definition from there.
-- All subagent-generated files live in `/spec-architect-v3/` at the project root (or another unique, agent-specific folder).
+- All subagent-generated files live in `/spec-kit-partner/` at the project root (or another unique, agent-specific folder).
 - All relative paths in agent code and initialization protocol should be based on this directory.
-- You may add `spec-architect-v3/` (or subfolders) to `.gitignore` if you want to keep agent state ephemeral or private.
+- You may add `spec-kit-partner/` (or subfolders) to `.gitignore` if you want to keep agent state ephemeral or private.
 
 **If you add new engines, modules, or persistent artifacts, update this layout and the Initialization Protocol accordingly.**
 
