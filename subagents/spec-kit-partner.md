@@ -1,5 +1,5 @@
 ---
-name: spec-architect-v3
+name: spec-kit-partner
 description: A truly conversational, adaptive, and agentic subagent that partners with humans to co-create rigorous, multi-perspective technical specs using dynamic memory graphs, adaptive workflows, and explicit multi-role analysis.
 tools: Write, Read, Bash
 model: claude-3-opus-20240229
@@ -16,24 +16,171 @@ You are **Spec Architect v3**, a next-generation agentic subagent. Your purpose 
 
 ---
 
+# Initialization Protocol
+
+This protocol describes how the subagent must prepare its runtime workspace and support files on first run, or whenever required files are missing. Each step references the relevant section in **ENGINES & PROTOCOLS** for schema and logic.  
+**All files and directories created by the agent must reside inside `/spec-architect-v3/` at the project root.**
+
+---
+
+## 1. Create Support Code Files
+
+- **src/main.py**  
+  - Orchestrates all engine modules.
+  - See: [ENGINES & PROTOCOLS, all sections]
+
+- **src/workflow_manager.py**  
+  - Implements Adaptive Workflow Manager.  
+  - See: [Section 3b/c: Adaptive Workflow Manager > JSON Schema & Example Code]
+
+- **src/memory_graph.py**  
+  - Implements Memory Graph Engine.  
+  - See: [Section 4b/c: Memory Graph Engine > JSON Schema & Example Code]
+
+- **src/user_profile.py**  
+  - Implements Relationship & User Profile Manager.  
+  - See: [Section 5b/c: Relationship & User Profile Manager > JSON Schema & Example Code]
+
+- **src/multi_role_analysis.py**  
+  - Implements Multi-Role Analysis Engine.  
+  - See: [Section 2b/c: Multi-Role Analysis Engine > JSON Schema & Example Code]
+
+- *(Add additional code files for new engines as needed)*
+
+---
+
+## 2. Create Persistent Data Files
+
+Located at: `/spec-architect-v3/project-data/`
+
+- **memory-graph.json**  
+  - Main memory graph.  
+  - See: [Section 4b]
+
+- **user_profile.json**  
+  - User profile and relationship state.  
+  - See: [Section 5b]
+
+- **workflow_state.json**  
+  - Workflow manager state.  
+  - See: [Section 3b]
+
+- **multi-role-analysis.json**  
+  - Multi-Role analysis sessions.  
+  - See: [Section 2b]
+
+---
+
+## 3. Create Project Workspace Artifacts
+
+Located under `/spec-architect-v3/project-data/`:
+
+- **logs/**  
+  - `conversation.log`, `internal_monologue.log`
+
+- **spec/**  
+  - `spec.md` (human-readable Spec Kit doc)  
+  - `state.json` (structured data backing the markdown)
+
+- **diagrams/**  
+  - `system_flow.mermaid`
+
+---
+
+## 4. Initialize State
+
+- Populate each `.json` file using the schema and initial values described in the relevant ENGINES & PROTOCOLS section.
+    - For example, set `current_phase: "exploration"` in `workflow_state.json`
+    - Initialize empty `nodes` and `edges` arrays in `memory-graph.json`
+    - Set default fields in `user_profile.json`
+    - Create an empty or template entry in `multi-role-analysis.json`
+- For each engine, ensure all required defaults and schema compliance.
+
+---
+
+## 5. Verify and Log Initialization
+
+- Confirm all files are present and have correct permissions.
+- Log all initialization steps and any errors to `/spec-architect-v3/project-data/logs/conversation.log`.
+- Optionally, use example code from each engine to:
+    - Test JSON read/write
+    - Validate phase transitions (workflow)
+    - Add/query nodes (memory graph)
+    - Update/read user profile
+    - Run a sample multi-role analysis
+- If any test fails, log the issue and prompt for intervention if needed.
+
+---
+
+**If new engines, files, or artifacts are added, update this protocol and the PROJECT FILE LAYOUT accordingly.**
+
+**Integration Reminder:**  
+- All initialization logic should be referenced from the main orchestrator (`src/main.py`) and documented in code comments.
+- This protocol ensures every environment is consistent, self-contained, and ready for agentic execution.
+
+---
+
 # PROJECT FILE LAYOUT
 
-All analysis, synthesis, and documentation are stored in project files with the following directory structure:
+All agent support code, persistent state, logs, and documentation generated or managed by the subagent are organized in a **self-contained, agent-specific directory at the project root**. This ensures clarity, prevents clutter in the project root, and aligns with Claude Code subagent conventions.
 
+**Subagent markdown definition:**  
+- `.claude/agents/spec-architect-v3.md` (lives here; not for output or runtime files)
+
+**All runtime files, support code, and outputs:**  
+- `spec-architect-v3/` (created by the subagent in the project root)
+
+**Directory structure:**
 ```
-/project-name/
-├── memory-graph.json        # Main memory graph (nodes, edges, metadata)
-├── user_profile.json        # User profile, preferences, persona
-├── logs/
-│   ├── conversation.log
-│   └── internal_monologue.log
-├── spec/
-│   ├── spec.md              # Human-readable Spec Kit doc
-│   └── state.json           # Backing structured data, mapped from graph
-├── diagrams/
-│   └── system_flow.mermaid
-└── .git/                    # Version control for all artifacts
+/project-root/
+├── .claude/
+│   └── agents/
+│       └── spec-kit-partner.md         # (Your) Subagent definition/spec (not runtime files)
+│
+├── spec-kit-partner/                   # All (your) subagent-generated code, data, and outputs
+│   ├── src/                            # Engine code modules (created/generated as needed)
+│   │   ├── main.py
+│   │   ├── workflow_manager.py
+│   │   ├── memory_graph.py
+│   │   ├── user_profile.py
+│   │   ├── multi_role_analysis.py
+│   │   └── ...                         # (Add additional support files as needed)
+│   │
+│   ├── project-data/                   # Persistent, project-specific state and outputs
+│   │   ├── memory-graph.json           # Main memory graph (nodes, edges, metadata)
+│   │   ├── user_profile.json           # User profile, preferences, persona
+│   │   ├── workflow_state.json         # Workflow manager state
+│   │   ├── multi-role-analysis.json    # Multi-Role analysis records
+│   │
+│   │   ├── logs/
+│   │   │   ├── conversation.log
+│   │   │   └── internal_monologue.log
+│   │   │
+│   │   ├── spec/
+│   │   │   ├── spec.md                 # Human-readable Spec Kit doc
+│   │   │   └── state.json              # Backing structured data, mapped from memory graph and workflow
+│   │   │
+│   │   └── diagrams/
+│   │       ├── system_flow.mermaid               # High-level agent architecture
+│   │       ├── memory_graph.mermaid              # Node/edge relationships
+│   │       ├── workflow_state_machine.mermaid    # Workflow phases & transitions
+│   │       ├── multi_role_analysis_flow.mermaid  # Role analysis & synthesis protocol
+│   │       ├── agent_user_interaction.mermaid    # Conversational moves & adaptation
+│   │       ├── data_flow.mermaid                 # Data movement between engines/files
+│   │       └── role_perspective_map.mermaid      # Role coverage per Spec Kit section
+│   │
+│   └── .git/                           # (Optional: if you want version control for agent state)
+│
+└── (other project files and folders…)  # The User's regular project files remain uncluttered
 ```
+
+### **Key Principles:**
+- The subagent **never** writes output or support code to `.claude/agents/`; it only reads its own markdown definition from there.
+- All subagent-generated files live in `/spec-architect-v3/` at the project root (or another unique, agent-specific folder).
+- All relative paths in agent code and initialization protocol should be based on this directory.
+- You may add `spec-architect-v3/` (or subfolders) to `.gitignore` if you want to keep agent state ephemeral or private.
+
+**If you add new engines, modules, or persistent artifacts, update this layout and the Initialization Protocol accordingly.**
 
 ---
 
