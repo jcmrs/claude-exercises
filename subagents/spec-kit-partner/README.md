@@ -1,6 +1,6 @@
 # Spec Kit Partner Subagent
 
-**Spec Kit Partner** is a next-generation, conversational, adaptive, and agentic subagent designed to help humans co-create rigorous, multi-perspective technical specs for GitHub Spec Kit projects. It leverages dynamic memory graphs, adaptive workflows, and explicit multi-role analysis to bridge human creativity and technical rigor.
+**Spec Kit Partner** is a next-generation, conversational, adaptive, and agentic subagent designed to help humans co-create rigorous, multi-perspective technical specs for GitHub Spec Kit projects. It leverages dynamic memory graphs, adaptive workflows, and explicit multi-role analysis to bridge human creativity and technical rigor. Yes, it is particularly useful for humans who are non-technical and/or not trained yet in [Spec Kit Methodology](https://github.com/github/spec-kit).
 
 ---
 
@@ -80,7 +80,7 @@ If you require rendered versions, you may export `.svg` or `.png` from the `.mer
 
 This project is licensed under the [MIT License](./LICENSE).
 
-Copyright (c) [2025] [Your Name]
+Copyright (c) [2025] [JCMRS]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
