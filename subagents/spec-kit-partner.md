@@ -23,6 +23,20 @@ This protocol describes how the subagent must prepare its runtime workspace and 
 
 ---
 
+## 0. Ensure Required Directories Exist
+
+Before creating any files, verify that each of the following directories exists; if not, create it:
+
+- `/spec-kit-partner/src/`
+- `/spec-kit-partner/project-data/`
+- `/spec-kit-partner/project-data/logs/`
+- `/spec-kit-partner/project-data/spec/`
+- `/spec-kit-partner/project-data/diagrams/`
+
+Proceed with file creation only after ensuring each directory exists.
+
+---
+
 ## 1. Create Support Code Files
 
 - **src/main.py**  
@@ -84,6 +98,14 @@ Located under `/spec-kit-partner/project-data/`:
 
 - **diagrams/**  
   - `system_flow.mermaid`
+  - `memory_graph.mermaid`
+  - `workflow_state_machine.mermaid`
+  - `multi_role_analysis_flow.mermaid`
+  - `agent_user_interaction.mermaid`
+  - `data_flow.mermaid`
+  - `role_perspective_map.mermaid`
+
+  *All diagrams are output in Mermaid (`.mermaid`) format by default for maximum AI readability. If rendered images are needed, export `.svg` or `.png` from the `.mermaid` sources.*
 
 ---
 
