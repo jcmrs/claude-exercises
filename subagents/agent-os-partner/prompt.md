@@ -127,13 +127,123 @@ The AI must use, in its entirety, ALL of the following (and may not skip or part
 ---
 
 ## 3. Methodology Analysis
-- 3-layer context model (global, spec, implementation)
-- Workflow phases (plan-product, new-spec, create-spec, implement, verify, update-roadmap)
-- Profile selection/inheritance
+
+This section instructs the AI to deeply analyze, internalize, and simulate the Agent OS methodology. The AI must go beyond surface-level summary and demonstrate true comprehension and reasoning. All findings must be evidenced by scenario-based examples, counter-examples, and self-tests.
+
+### 3.1. 3-Layer Context Model
+
+- **Task:** Analyze, map, and demonstrate the Agent OS three-layer context model:
+  - **Global context:** Product standards, mission, roadmap, tech stack, persistent rules.
+  - **Spec/feature context:** Current feature’s requirements, visual assets, Q&A, scope, constraints.
+  - **Implementation/task context:** Current task or subtask, assigned agent, immediate standards, and scope.
+- **Requirements:**
+  - For each layer, clearly define its contents, scope, and how it is accessed and used by agents/subagents.
+  - Diagram the flow of context from one layer to another and how agents must reference each layer for every major workflow phase.
+  - **Demonstrate understanding by producing scenario-based examples:** For at least three different agent roles (e.g., implementer, verifier, researcher), simulate how they would use all three context layers to process a specific task.
+  - Identify and explain any potential ambiguities, overlaps, or risks in context handoff or inheritance.
+
+### 3.2. Workflow Phases
+
+- **Task:** Map the complete lifecycle of a feature in Agent OS, including all workflow phases:
+  1. **plan-product**
+  2. **new-spec** (research and requirements gathering)
+  3. **create-spec** (formal spec creation)
+  4. **task breakdown** (task list, assignments)
+  5. **implement** (implementation, documentation)
+  6. **verify** (feature verification and compliance)
+  7. **update-roadmap** (aggregate and update product context)
+- **Requirements:**
+  - For each phase, detail:
+    - Inputs and outputs (including files, context, and standards)
+    - Agent/subagent roles involved
+    - Required standards and validation steps
+    - How context flows into and out of the phase
+  - **Simulation:** For each phase, produce a step-by-step simulation for a representative feature (e.g., “User Login Feature”), showing context handoff, agent actions, and file outputs at each step.
+  - Identify phase transitions, decision points, and feedback/iteration loops.
+  - Explicitly map dependencies between phases and possible failure/recovery scenarios.
+
+### 3.3. Profile Selection and Inheritance
+
+- **Task:** Analyze the concept of “profiles” in Agent OS and their impact on standards, agent templates, and workflows.
+- **Requirements:**
+  - Define what a profile is, how it is created, selected, and inherited.
+  - Detail which elements (standards, agent templates, workflows) are profile-dependent, and how overrides/inheritance works.
+  - **Scenario analysis:** Demonstrate how two different profiles (e.g., “default” vs. “custom-enterprise”) would affect the standards, available agents, or file outputs for a given feature spec.
+  - Map and explain how profile selection is validated and enforced throughout the workflow.
+  - Identify any ambiguity or risk in profile handling and propose validation steps to ensure correctness.
+
+### 3.4. Methodology Verification and Self-Test
+
+- **Task:** After mapping and simulating the above, the AI must **verify its own understanding** of the methodology.
+- **Requirements:**
+  - For each major process and context flow, pose and answer “What if?” scenarios (e.g., “What if the wrong profile is selected?” “What if a standards file is missing?” “What if a task is implemented with outdated product context?”).
+  - Identify ambiguity, edge cases, or conflicting rules, and suggest how the meta-agent should handle or flag them.
+  - **Deliver a set of self-test cases** (with expected outcomes) that can be used to validate that future agents or users are properly following the methodology.
+
+---
+
+**Do not proceed to standards mapping or agent role mapping until the methodology has been fully mapped, simulated, and verified as above.**
 
 ## 4. Standards and Profiles
-- Standards: definitions, structure, enforcement
-- Profiles: configuration, inheritance, overrides
+
+This section instructs the AI to rigorously analyze, map, simulate, and validate the standards and profiles system in Agent OS.  
+The resulting outputs must enable the meta-agent to enforce, validate, and, where allowed, adapt standards and profiles in any context or workflow.
+
+---
+
+### 4.1. Standards
+
+#### 4.1.1. Definition and Structure
+- Fully enumerate and define every standards file, rule, and best practice referenced or enforced by Agent OS.
+  - Include, but do not limit to: coding standards, naming conventions, file structure, test-writing rules, API/architecture guidelines, accessibility, security, and technological stack requirements.
+  - For each standard, specify:
+    - File path and canonical location (e.g., `standards/global/coding-style.md`)
+    - Scope of enforcement (global, feature, implementation, agent-specific)
+    - Format (Markdown, YAML, other)
+    - Inheritance/overrides (can this standard be superseded by profile/project standards?)
+
+#### 4.1.2. Enforcement and Validation
+- **Map**: For every workflow phase and file/artifact, specify which standards are required, how compliance is checked, and what happens when a violation is detected.
+- **Simulate**: For at least three scenarios (e.g., code style violation, missing security standard, conflicting standards across profiles), walk through how detection, error reporting, and remediation would occur.
+- **Best Practices**: Synthesize not only formal rules but the meta-principles (e.g., "do not paraphrase user requirements," "must document standards compliance in every implementation/verification report").
+- **External Standards**: If Agent OS references external standards (e.g., language/framework best practices), include these and specify how the meta-agent must fetch, validate, or update them.
+
+#### 4.1.3. Gaps and Ambiguity
+- **Analyze**: Identify any areas where standards are ambiguous, missing, or potentially conflicting.
+  - For each, propose a validation or conflict-resolution approach for the meta-agent.
+
+---
+
+### 4.2. Profiles
+
+#### 4.2.1. Configuration and Structure
+- **Fully define**: What is a profile in Agent OS? How is it created, structured, and selected?
+  - List and describe all configurable elements (standards, agent templates, workflows, roles, etc.).
+  - Specify canonical file formats/locations (e.g., `profile-config.yml`).
+
+#### 4.2.2. Inheritance and Overrides
+- **Map**: How does profile inheritance work?
+  - Describe the rules for inheriting standards and behaviors from parent/default profiles.
+  - For each element, specify how and where it can be overridden (file-level, directory-level, agent-level, project-level).
+  - Simulate: Provide at least two scenarios (e.g., a “default” profile inherited by a “custom-enterprise” profile with specific overrides).
+  - Include edge cases (e.g., missing, malformed, or conflicting overrides).
+
+#### 4.2.3. Enforcement and Validation
+- **Describe**: How is the active profile determined and enforced at runtime (both by humans and by agents)?
+- **Validation**: What checks must the meta-agent perform to ensure standards and configuration are consistent, complete, and non-conflicting for a given profile?
+- **Simulation**: For at least one scenario, walk through profile selection, inheritance, override, and enforcement for a new feature spec.
+
+#### 4.2.4. Profile-Driven Agent Behavior
+- **Map**: For every major agent/subagent, specify how profiles and standards affect:
+  - Prompting
+  - Validation
+  - Output formatting
+  - Error handling
+- **Best Practices**: Summarize how meta-agents should reason about, enforce, or surface profile-driven differences to users and subagents.
+
+---
+
+**Do not proceed to agent/role mapping until all standards, profiles, inheritance, and enforcement logic have been fully mapped, simulated, and validated.**
 
 ## 5. Agent/Role Mapping
 - List of all agent and subagent roles
