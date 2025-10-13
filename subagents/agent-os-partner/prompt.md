@@ -1,5 +1,78 @@
 # Agent OS Complete Methodology & File Workflow Mapping: Master Prompt Blueprint
 
+## Core Build Deliverable: Agentic Meta-Agent Markdown File
+
+### What You Must Build
+
+You are required to produce, as your **primary output**, a **single, standalone, standards-compliant Markdown file** that constitutes the actual agentic meta-agent subagent for Agent OS.
+
+#### This file is the agent itself:
+
+- **Format:**  
+  - The deliverable is a `.md` (Markdown) file, fully self-contained, and ready to be used as a Claude/LLM system prompt or as a blueprint for deploying the Agent OS meta-agent/subagent.
+- **Content:**  
+  - Integrate—within the file itself—all required process mappings, checklists, canonical examples, diagrams (using in-line Mermaid or Markdown), error/validation protocols, output requirements, and references described in this blueprint.
+  - Embed all supporting artifacts as sections within the file:  
+    - Source manifest  
+    - Methodology analysis & simulation  
+    - Standards mapping & simulation  
+    - Engine/protocol inventory & orchestration docs  
+    - File/artifact structure mapping  
+    - Process mapping table & diagrams  
+    - All phase/role/engine checklists  
+    - Canonical examples for every artifact  
+    - Domain/profile coverage summary table  
+    - Output requirements documentation  
+    - AI synthesis & validation protocols  
+    - Appendix: URL/file/artifact/diagram references  
+    - All inline and appendix examples, with explicit cross-references
+- **Usage:**  
+  - The file must be deployable *as is*; no further assembly, referencing, or manual integration is required.
+  - The file must serve as a “drop-in” meta-agent: both blueprint and operational prompt.
+  - Anyone with this file must be able to instantiate, validate, audit, and extend the meta-agentic orchestration system without any external context or dependencies.
+- **Alignment:**  
+  - Every section and artifact must be strictly compliant with the technical standards, file structures, process mappings, and methodological principles outlined throughout this blueprint.
+
+---
+
+### Natural Language Instruction
+
+> **You are not simply producing documentation or a mapping—you are building and delivering the meta-agentic subagent itself.  
+> Your output must be a single, unified Markdown file that is both the operational prompt and the full standards/methodology-compliant blueprint for the Agent OS meta-agent.  
+> The deliverable must be fully executable, auditable, and extensible, with every section, example, checklist, and protocol embedded and cross-referenced.  
+> No output is valid unless it is this complete, ready-to-operate agentic meta-agent Markdown file.**
+
+---
+
+### Master Deliverables Checklist
+
+Your final output must be a single, fully self-contained markdown file (the "Agentic Meta-Agent Markdown File") that includes **all** of the following, fully embedded and cross-referenced as sections:
+
+| Output / Section / Artifact                        | Description / Notes                                               |
+|----------------------------------------------------|-------------------------------------------------------------------|
+| **Agentic Meta-Agent Markdown File (core build)**  | The complete, executable markdown prompt/file for the meta-agent. **All items below must be included as sections or content within this file.** |
+| Source Manifest                                    | Full list of all sources, files, docs, with context of use        |
+| Methodology Analysis & Simulation                  | 3-layer context mapping, workflow scenarios, profile inheritance demos |
+| Standards Mapping & Simulation                     | Enumerated standards, enforcement, profile overrides, validation cases |
+| Engine/Protocol Inventory & Orchestration Docs     | Engine contracts, orchestration diagrams, simulations, enhancement plans |
+| File/Artifact Structure Mapping                    | Directory tree, naming conventions, file templates, validation rules    |
+| Process Mapping Table & Diagrams                   | Canonical atomic process table, Mermaid diagrams                  |
+| All Phase/Role/Engine Checklists                   | Dynamic, role-aware checklists, meta-checklist, management protocol   |
+| Canonical Examples for Every Artifact              | requirements.md, spec.md, tasks.md, assignments, reports, logs, etc.  |
+| Domain/Profile Coverage Summary Table              | Cross-reference all domains/profiles to artifact examples         |
+| Output Requirements Documentation                  | Formatting, validation, error output requirements                 |
+| AI Synthesis & Validation Protocols                | Instructions for AI, ambiguity handling, self-validation          |
+| Appendix: URL/File/Artifact/Diagram References     | All referenced URLs, files, diagrams, plus canonical/inline examples  |
+| All Inline and Appendix Examples                   | With explicit cross-references                                   |
+
+---
+
+**Instruction:**  
+All items in this checklist must be present as integral, cross-referenced sections or artifacts within the single markdown file you output.  
+No output is considered valid unless every checklist item is included, and the markdown file is directly usable as the agentic meta-agent prompt/blueprint for Agent OS.
+
+---
+
 ## 1. Introduction
 
 ### Goal
