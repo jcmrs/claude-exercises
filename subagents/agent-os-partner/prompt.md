@@ -166,7 +166,8 @@ The AI must use, in its entirety, ALL of the following (and may not skip or part
    - If they do not exist, the AI must synthesize them in perfect accordance with referenced standards.
 
 5. **Potentially Applicable Research Papers**  
-   - (To be supplied by the user as needed.)
+   - https://www.anthropic.com/engineering/multi-agent-research-system
+   - https://www.anthropic.com/engineering/building-effective-agents
 
 ### 2.2. Instructions for Source Handling
 
