@@ -4,9 +4,9 @@
 
 This directory contains comprehensive documentation and analysis of the [Agent OS](https://github.com/buildermethods/agent-os) repository to support architectural refactoring and modernization efforts.
 
-**Analysis Date:** 2025-10-13  
+**Analysis Date:** 2025-10-14  
 **Agent OS Version:** 2.0.3  
-**Analysis Scope:** Complete codebase (77 files analyzed)
+**Analysis Scope:** Complete codebase (70 files analyzed) + comprehensive technical documentation
 
 ---
 
@@ -34,6 +34,32 @@ This analysis was created to:
 | **[commands.md](./commands.md)** | CLI and user-facing command reference | User-Focused |
 | **[refactoring-notes.md](./refactoring-notes.md)** | Action items, blockers, and implementation priorities | Actionable |
 | **[test-coverage.md](./test-coverage.md)** | Testing analysis and strategy | Implementation-Ready |
+
+### Detailed Technical Analysis
+
+**📁 [docs/analysis/](./docs/analysis/)** - Complete technical analysis suite (9 documents, 234,385 characters)
+
+| Document | Description | Focus |
+|----------|-------------|-------|
+| **[api-conventions.md](./docs/analysis/api-conventions.md)** | **Canonical API Reference** | Complete API-to-filesystem mapping |
+| [profiles-analysis.md](./docs/analysis/profiles-analysis.md) | Profile System | Structure, inheritance, conventions |
+| [commands-analysis.md](./docs/analysis/commands-analysis.md) | Command System | Patterns, step discovery, API mappings |
+| [standards-analysis.md](./docs/analysis/standards-analysis.md) | Standards Library | Organization, glob patterns, expansion |
+| [workflows-analysis.md](./docs/analysis/workflows-analysis.md) | Workflow System | Patterns, template inclusion, recursion |
+| [roles-analysis.md](./docs/analysis/roles-analysis.md) | Role Definitions | YAML structure, compilation, validation |
+| [agents-analysis.md](./docs/analysis/agents-analysis.md) | Agent System | Definitions, dynamic generation, templates |
+| [scripts-analysis.md](./docs/analysis/scripts-analysis.md) | Installation Scripts | Complete inventory, functions, workflows |
+| [README.md](./docs/analysis/README.md) | Analysis Index | Navigation and quick reference |
+
+**Key Features:**
+- ✅ Complete file naming conventions with regex patterns
+- ✅ API endpoint mappings for all resources
+- ✅ Template expansion rules and examples
+- ✅ Profile inheritance scenarios
+- ✅ Error handling matrices
+- ✅ Performance guidelines
+- ✅ Testing recommendations
+- ✅ Comprehensive cross-references
 
 ---
 
@@ -64,6 +90,12 @@ This analysis was created to:
 
 **Setting up tests?**
 → Follow [test-coverage.md](./test-coverage.md)
+
+**Need API mappings and file conventions?**
+→ Check [docs/analysis/api-conventions.md](./docs/analysis/api-conventions.md) (canonical reference)
+
+**Working with specific components?**
+→ Browse [docs/analysis/](./docs/analysis/) for detailed technical analysis
 
 ---
 
@@ -173,22 +205,25 @@ All diagrams are embedded in the documentation as Mermaid code blocks and will r
 ## Statistics
 
 ### Repository Metrics
-- **Total Files:** 77
+- **Total Files:** 77 (70 in agent-os + 7 GitHub-specific)
 - **Scripts:** 6 bash scripts
 - **Script Lines:** 4,371 total
 - **Standards Files:** 15
-- **Workflow Files:** 13
-- **Agent Definitions:** 9
-- **Command Definitions:** 4 × 2 modes = 8 variations
+- **Workflow Files:** 22 (20 workflows + 2 responsibility docs)
+- **Agent Definitions:** 9 (7 specialized + 2 templates)
+- **Command Definitions:** 4 commands × 2 modes = 8 variations (12 single-agent steps + 4 multi-agent)
 - **Role Definitions:** 6 (4 implementers + 2 verifiers)
 - **GitHub Actions:** 2 workflows
 
 ### Analysis Metrics
-- **Documentation Files:** 8 markdown documents
-- **Total Documentation:** ~118,000 words
+- **Documentation Files:** 17 markdown documents (8 core + 9 analysis)
+- **Total Documentation:** ~360,000 words
 - **Mermaid Diagrams:** 30+
 - **Action Items:** 100+
 - **Test Cases Proposed:** 140+
+- **Analysis Documents:** 9 comprehensive technical docs
+- **API Endpoint Mappings:** 40+
+- **Convention Tables:** 100+
 
 ---
 
@@ -207,10 +242,12 @@ All diagrams are embedded in the documentation as Mermaid code blocks and will r
 
 ### For AI Assistants
 1. All documentation is structured for AI parsing
-2. Mermaid diagrams provide visual context
-3. Cross-references enable navigation
-4. Action items are specific and prioritized
-5. Code examples provided where relevant
+2. **Start with [docs/analysis/api-conventions.md](./docs/analysis/api-conventions.md)** - Canonical API reference
+3. Use [docs/analysis/](./docs/analysis/) for detailed component understanding
+4. Mermaid diagrams provide visual context
+5. Cross-references enable navigation
+6. Action items are specific and prioritized
+7. Code examples provided where relevant
 
 ---
 
@@ -263,6 +300,6 @@ This analysis documentation is provided under the same license as the claude-exe
 
 ---
 
-**Last Updated:** 2025-10-13  
-**Analysis Version:** 1.0  
+**Last Updated:** 2025-10-14  
+**Analysis Version:** 2.0  
 **Agent OS Version Analyzed:** 2.0.3
